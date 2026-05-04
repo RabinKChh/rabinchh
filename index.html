@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($name) || empty($email) || empty($subject) || empty($message)) {
         $_SESSION['contact_error'] = 'All fields are required!';
         error_log("Validation failed: Empty fields");
-        header('Location: index.html#contact');
+        header('Location: index.php#contact');
         exit();
     }
 
@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $_SESSION['contact_error'] = 'Invalid email address!';
         error_log("Validation failed: Invalid email - $email");
-        header('Location: index.html#contact');
+        header('Location: index.php#contact');
         exit();
     }
 
@@ -195,7 +195,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         error_log("Deleted uploaded file due to send failure: " . $uploaded_file['name']);
     }
     
-    header('Location: index.html#contact');
+    header('Location: index.php#contact');
     exit();
 }
 
